@@ -11,22 +11,20 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.Browser;
+
 public class Loginpage 
 {
-	 WebDriver driver;
-	public Loginpage(WebDriver driver)
-	{
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
-	}
+	    WebDriver driver;
 	
-//	@FindBy(xpath="//input[@name='username']")
-//	@CacheLookup
-//	WebElement usernamel;
 	
-//	@FindBy(xpath="//input[@name='password']")
-//	@CacheLookup
-//	WebElement passwordl;
+	@FindBy(css="#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input")
+	@CacheLookup
+	WebElement usernamel;
+	
+	@FindBy(xpath="//input[@name='password']")
+	@CacheLookup
+	WebElement passwordl;
 	
 	@FindBy(xpath="//button[text()=' Login ']")
 	@CacheLookup
@@ -40,44 +38,36 @@ public class Loginpage
 	@CacheLookup
 	WebElement logoutbutton;
 	
+	public Loginpage(WebDriver driver)
+	{
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	
 	public void enterusername(String useraname) throws InterruptedException
 	{
-       try 
-       {  
-//		usernamel.clear();
-//		usernamel.click();
+       
     	 
-    	   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    	   WebElement usernamel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='username']")));
-    	   usernamel.clear();
+//    	   usernamel.clear();
+    	   Browser.Waitmethod(usernamel);
+    	   usernamel.isEnabled();
     	   usernamel.sendKeys(useraname);
-		//usernamel.sendKeys(useraname);
-		
+				
 		System.out.println("enter to username ");
-       }
-       catch(NullPointerException e)
-       {
-    	   e.printStackTrace();
-    	   
-       }
+       
        
 	}
 	public void enterpassword(String password)
 	{
-	 	try
-	 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    	   WebElement passwordl = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='password']s")));
+	 	
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//    	   WebElement passwordl = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='password']s")));
 
-		passwordl.clear();
-		passwordl.click();
+//		passwordl.clear();
+//		passwordl.click();
+		Browser.Waitmethod(passwordl);
 		passwordl.sendKeys(password);
-	}
-	 	catch(NullPointerException e)
-	       {
-	    	   e.printStackTrace();
-	 		
-	 	}
+	
 	}
 	
 	public void clickonloginbutn()
@@ -99,9 +89,6 @@ public class Loginpage
 	{
 		driver.close();
 	}
-	
-	
-	
 	
 
 }

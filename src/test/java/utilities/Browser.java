@@ -72,8 +72,8 @@ public class Browser
 	public static void Waitmethod(WebElement element) 
 	{
 	    wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-	    //wait.until(ExpectedConditions.visibilityOf(element)); 
-	    wait.until(ExpectedConditions.elementToBeClickable(element));
+	    wait.until(ExpectedConditions.visibilityOf(element)); 
+	    //wait.until(ExpectedConditions.elementToBeClickable(element));
 	   // element = wait.until(ExpectedConditions.elementToBeClickable(By.id("someid")));
 
 	}
