@@ -2,7 +2,6 @@ package utilities;
 
 import java.io.FileInputStream;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -90,6 +89,7 @@ public class PropertyReader
 		System.out.println("cellscount=" + cellscount);
 		
 		String info[][] = new String[rows][cellscount];
+		System.out.println(info);
 		int k = 0, l = 0;
 		for (int i = 1; i <= rows; i++) {
 			l = 0;

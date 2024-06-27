@@ -1,6 +1,8 @@
 package stepDefination;
 
 import java.util.List;
+
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import utilities.Browser;
 import utilities.PropertyReader;
@@ -10,6 +12,7 @@ import pageObjects.Loginpage;
 public class Steps 
 {
 	static WebDriver driver;
+
 	Loginpage login;
 	
 	@Given("Lanch chrome browser")
@@ -45,15 +48,15 @@ public class Steps
 	}
 
 	@When("Enter Password as {string}")
-	public void enter_password_as(String string) {
-	    login.enterpassword("admin123");
+	public void enter_password_as(String pass) {
+	    login.enterpassword(pass);
 
 	 
 	}
 
 	@When("click on login link")
 	public void click_on_login_link() {
-	    
+		login.clickonloginbutn();   
 	}
 
 	@Then("Page Title should be {string}")

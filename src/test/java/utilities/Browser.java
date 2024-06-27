@@ -2,6 +2,7 @@ package utilities;
 
 import java.io.File;
 
+
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -18,33 +19,31 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+
 public class Browser 
 {
 	static WebDriver driver;
 	static WebDriverWait wait;
-	@SuppressWarnings("deprecation")
-	public static WebDriver LanchBrowser(String browsername,String drivername)
+
+	public static WebDriver LanchBrowser(String browsername)
 	{
-		if(browsername.equals("chrome"))
+		if(browsername.equals("Chrome"))
 		{
 			driver=new ChromeDriver();
-			// System.setProperty("WebDriver.Chrome.driver", "\\home\\tvisha\\Downloads\\chromedriver-linux64.exe");
 			driver.manage().window().maximize();
-		      driver. manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}
 		else if(browsername.equals("Edge"))
 		{
 			driver=new EdgeDriver();
-			// System.setProperty("WebDriver.Chrome.driver", "/home/tvisha/Downloads/chromedriver-linux64.exe");
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}
 		else
 		{
 			driver=new FirefoxDriver();
-			// System.setProperty("WebDriver.Chrome.driver", "/home/tvisha/Downloads/chromedriver-linux64.exe");
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}
 		return driver;
 	}
@@ -72,8 +71,8 @@ public class Browser
 	public static void Waitmethod(WebElement element) 
 	{
 	    wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-	    wait.until(ExpectedConditions.visibilityOf(element)); 
-	    //wait.until(ExpectedConditions.elementToBeClickable(element));
+	    //wait.until(ExpectedConditions.visibilityOf(element)); 
+	    wait.until(ExpectedConditions.elementToBeClickable(element));
 	   // element = wait.until(ExpectedConditions.elementToBeClickable(By.id("someid")));
 
 	}
