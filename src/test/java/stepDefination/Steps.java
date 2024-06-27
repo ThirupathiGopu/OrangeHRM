@@ -1,7 +1,6 @@
 package stepDefination;
 
 import java.util.List;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import utilities.Browser;
 import utilities.PropertyReader;
