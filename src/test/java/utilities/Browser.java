@@ -25,9 +25,9 @@ public class Browser
 	static WebDriver driver;
 	static WebDriverWait wait;
 
-	public static WebDriver LanchBrowser(String browsername)
+	public static WebDriver LanchBrowser(String browsername, String drivername)
 	{
-		if(browsername.equals("Chrome"))
+		if(browsername.equals("chrome"))
 		{
 			driver=new ChromeDriver();
 			driver.manage().window().maximize();

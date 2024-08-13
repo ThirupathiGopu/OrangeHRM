@@ -28,7 +28,8 @@ public class Steps
 	}
 
 	@When("Enter url{string}")
-	public void enter_url(String str) throws Exception 
+	public void enter_url(String use) throws Exception 
+
 	
 	{
 		List<String>info=PropertyReader.getData("browser", 1);
@@ -41,16 +42,20 @@ public class Steps
 
 	@When("Enter user name  as {string}")
 	public void enter_user_name_as(String user) throws Exception 
+
 	{
+		List<String>info=PropertyReader.getData("loginpage", 1);
 		System.out.println("user name and password text box is displayed");
-	    login.enterusername(user);
-	    
+		String username=info.get(0);
+	    login.enterusername(username);
 	}
 
 	@When("Enter Password as {string}")
-	public void enter_password_as(String pass) {
-	    login.enterpassword(pass);
-
+	public void enter_password_as(String pass) throws Exception {
+		List<String>info=PropertyReader.getData("loginpage", 1);
+		System.out.println("user name and password text box is displayed");
+		String password=info.get(1);
+	    login.enterusername(password);
 	 
 	}
 

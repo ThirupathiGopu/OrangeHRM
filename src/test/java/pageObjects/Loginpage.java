@@ -1,24 +1,19 @@
 package pageObjects;
 
-import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import utilities.Browser;
 
 public class Loginpage 
 {
-	    WebDriver driver;
-	
-	
-	@FindBy(css="#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input")
+	  public  WebDriver driver;
+	@FindBy(xpath="//input[@name='username']")
 	@CacheLookup
 	WebElement usernamel;
 	
@@ -49,8 +44,8 @@ public class Loginpage
        
     	 
 //    	   usernamel.clear();
-    	   Browser.Waitmethod(usernamel);
-    	   usernamel.isEnabled();
+    	   //Browser.Waitmethod(usernamel);
+//    	   usernamel.isEnabled();
     	   usernamel.sendKeys(useraname);
 				
 		System.out.println("enter to username ");
